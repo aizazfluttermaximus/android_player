@@ -60,6 +60,7 @@ public final class PlatformVideoView implements PlatformView {
                 exoPlayer.setVideoSurface(holder.getSurface());
                 // Force first frame rendering:
                 exoPlayer.seekTo(1);
+                exoPlayer.setPlayWhenReady(true);
               }
 
               @Override

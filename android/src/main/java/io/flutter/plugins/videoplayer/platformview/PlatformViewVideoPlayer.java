@@ -50,8 +50,9 @@ public class PlatformViewVideoPlayer extends VideoPlayer {
         options,
         () -> {
           ExoPlayer.Builder builder =
-              new ExoPlayer.Builder(context)
-                  .setMediaSourceFactory(asset.getMediaSourceFactory(context));
+              new ExoPlayer.Builder(context).setRenderersFactory(
+                DefaultRenderersFactory(context).setEnableDecoderFallback(true)
+            ).setMediaSourceFactory(asset.getMediaSourceFactory(context));
           return builder.build();
         });
   }
